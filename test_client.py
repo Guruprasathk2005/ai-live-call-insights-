@@ -25,7 +25,7 @@ async def stream_call():
                 data = json.loads(response)
                 
                 analysis = data["realtime_analysis"]
-                print(f" Spoken Segment: \"{data['chunk']}\"")
+                print(f"🎤 Spoken Segment: \"{data['chunk']}\"")
                 print(f"   └─ [Sentiment]: {analysis.get('sentiment')} | [Urgent]: {analysis.get('urgent_flag')} | [Intent]: {analysis.get('intent')}\n")
                 
             print("All streams evaluated. Dropping socket connection...")
