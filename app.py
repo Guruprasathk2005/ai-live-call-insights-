@@ -11,7 +11,7 @@ app = FastAPI(title="AI Live Call Insights Engine")
 
 api_key = os.getenv("GROQ_API_KEY", "")
 if not api_key:
-    print("\n[🚨 WARNING]: GROQ_API_KEY is not configured in your .env file!\n")
+    print("\n[WARNING]: GROQ_API_KEY is not configured in your .env file!\n")
 
 client = AsyncGroq(api_key=api_key)
 MODEL = "llama-3.3-70b-versatile"
