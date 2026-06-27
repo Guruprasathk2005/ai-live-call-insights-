@@ -18,14 +18,14 @@ async def stream_call():
             print("Connected! Streaming speech recognition text blocks...\n")
             
             for chunk in sample_chunks:
-                await asyncio.sleep(2.5)  # Simulate human dialogue pausing
+                await asyncio.sleep(2.5)
                 
                 await websocket.send(json.dumps({"text": chunk}))
                 response = await websocket.recv()
                 data = json.loads(response)
                 
                 analysis = data["realtime_analysis"]
-                print(f"🎤 Spoken Segment: \"{data['chunk']}\"")
+                print(f" Spoken Segment: \"{data['chunk']}\"")
                 print(f"   └─ [Sentiment]: {analysis.get('sentiment')} | [Urgent]: {analysis.get('urgent_flag')} | [Intent]: {analysis.get('intent')}\n")
                 
             print("All streams evaluated. Dropping socket connection...")
